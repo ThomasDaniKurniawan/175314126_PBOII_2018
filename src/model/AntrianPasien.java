@@ -14,13 +14,16 @@ public class AntrianPasien {
     private int bulanAntrian;
     private int tahunAntrian;
     private Klinik klinik;
-    private Pasien daftarPasien[];
+    private Pasien daftarPasienantri[];
      /* mendeklarasikan attribute tanggalAntrian, bulanAntrian, tahunAntrian dengan tipe data integer yang sifatnya private ,
     mendeklarasikan attribute klinik dengan tipe Klinik yang sifatnya private ; juga mendeklarasikan attribute dafterPasien bersifat array yang sifatnya private*/
     
     public AntrianPasien() {    } 
     /* constructor dari kelas AntrianPasien yang merupakan menthod khusus yang akan  dijalankan secara otomatis pada saat sebuah objek dibuat atau
      ketika perintah new dijalankan*/
+    public void mendaftar(Pasien pasien){
+        
+    }
     
     public void settanggalAntrian(int tanggalAntrian)throws Exception{
         if (tanggalAntrian < 32 && tanggalAntrian > 0) {
@@ -73,7 +76,7 @@ public class AntrianPasien {
        
     }
     public void  setdaftarPasien(Pasien daftarPasien[]){
-        this.daftarPasien = daftarPasien;
+        this.daftarPasienantri = daftarPasien;
          /* merupakan menthod setdaftarPasien() dengan parameter nilai dari objek daftarPasienyang bertipe Pasien, menthod ini diberi kode
              throws exception untuk melemparkan kondisi yang mencegah eksekusi berjalan normal atau exception dari menthod setdaftarPasien() */
          /* menthod akan menjalankan perintah untuk menyimpan nilai dari objek daftarPasien ke attribute daftarPasien dan mendeklarasikan attribute
@@ -100,7 +103,7 @@ public class AntrianPasien {
          /* menthod akan menjalankan perintah untuk mengembalikan nilai ke attribute klinik dengan perintah return*/
     }
     public Pasien[] getdaftarPasien(){
-        return daftarPasien;
+        return daftarPasienantri;
          /* merupakan menthod getdaftarPasien() dengan parameter nilai dari objek daftarPasien*/
          /* menthod akan menjalankan perintah untuk mengembalikan nilai ke attribute daftarPasien dengan perintah return*/
     }

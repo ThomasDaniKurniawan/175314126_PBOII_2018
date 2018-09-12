@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Lenovo
@@ -14,7 +16,25 @@ public class Pasien extends AntrianPasien{
     private String nama;
     private String alamat, tempatLahir;
     private int tanggalLahir, BulanLahir, tahunLahir;
+    private String nik;
+    public static ArrayList<Pasien> daftarPasienKlinik = new ArrayList<Pasien>(); 
+
+    public Pasien(String nama, String alamat, String temlahir, int i, int j, int k, String nik) {
+        this.nama = nama;
+        this.alamat = alamat;
+        this.tempatLahir = temlahir;
+        this.tanggalLahir = i;
+        this.BulanLahir = j;
+        this.tahunLahir= k;
+        this.nik = nik;
+    }
     
+    public static void tambahPasienBaru(Pasien pasien){
+    Pasien.daftarPasienKlinik.add(pasien);
+    }    
+    public static Pasien cariPasien(String NoRM){
+        return null;
+    }
     /* mendeklarasikan attribute noRekamMedis, tanggalLahir, BulanLahir, dan tahunLahir dengan tipe data integer yang sifatnya private 
     mendeklarasikan attribute nama, alamat, dan tempatLahir dengan tipe data String yang sifatnya private */
     
