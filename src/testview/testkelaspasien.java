@@ -9,7 +9,7 @@ import model.Pasien;
 
 /**
  *
- * @author admin
+ * @author tom
  */
 public class testkelaspasien {
 

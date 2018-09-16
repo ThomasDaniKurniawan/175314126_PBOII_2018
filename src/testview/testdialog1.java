@@ -9,7 +9,7 @@ import view.DaftarAntrianDialog;
 
 /**
  *
- * @author admin
+ * @author tom
  */
 public class testdialog1 {
       public static void main(String[] args) {

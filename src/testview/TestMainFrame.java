@@ -4,22 +4,21 @@
  * and open the template in the editor.
  */
 package testview;
-
-import view.TambahPasienBaruDialog;
+import view.MainFrame;
 
 /**
  *
- * @author Thom
+ * @author Lenovo
  */
-public class testtambahpasienBaruDialog {
+public class TestMainFrame {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    TambahPasienBaruDialog test = new TambahPasienBaruDialog("tambah pasien baru");
-     test.setSize(300, 400);       
-     test.setVisible(true);
+     MainFrame mf = new MainFrame();
+     mf.setSize(500, 400);
+     mf.setVisible(true);
     }
     
 }

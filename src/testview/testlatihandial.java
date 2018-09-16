@@ -6,20 +6,22 @@
 package testview;
 
 import view.TambahPasienBaruDialog;
+import view.DaftarAntrianDialog;
 
 /**
  *
- * @author Thom
+ * @author Lenovo
  */
-public class testtambahpasienBaruDialog {
+public class testlatihandial {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    TambahPasienBaruDialog test = new TambahPasienBaruDialog("tambah pasien baru");
-     test.setSize(300, 400);       
-     test.setVisible(true);
+        TambahPasienBaruDialog ld = new TambahPasienBaruDialog();
+        ld.setSize(300, 400);
+        ld.setVisible(true);
+        
     }
     
 }
