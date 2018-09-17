@@ -3,25 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testview;
-
-import view.TambahPasienBaruDialog;
-import view.DaftarAntrianDialog;
+package testprak;
+import view.MainFrame;
 
 /**
  *
  * @author Lenovo
  */
-public class testlatihandial {
+public class TestMainFrame {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TambahPasienBaruDialog ld = new TambahPasienBaruDialog();
-        ld.setSize(300, 400);
-        ld.setVisible(true);
-        
+     MainFrame mf = new MainFrame();
+     mf.setSize(500, 400);
+     mf.setVisible(true);
     }
     
 }

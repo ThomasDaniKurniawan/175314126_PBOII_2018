@@ -3,18 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testview;
-
+package testPrak;
 import view.DaftarAntrianDialog;
-
 /**
  *
- * @author tom
+ * @author Thom
  */
-public class testdialog1 {
-      public static void main(String[] args) {
-        DaftarAntrianDialog  test = new DaftarAntrianDialog ("latihan");
-        test.setSize(300, 400);       
+public class TestTambahAntrianDialog {
+    public static void main(String[] args) {
+        DaftarAntrianDialog test = new DaftarAntrianDialog();
+        test.setSize(500, 400);
         test.setVisible(true);
-}
+    }
 }

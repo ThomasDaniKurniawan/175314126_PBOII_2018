@@ -19,7 +19,6 @@ import javax.swing.JTextField;
  */
 public class DaftarAntrianDialog extends JDialog {
     private JLabel JudulLabel;
-    private JLabel namaLabel;
     private JLabel noRekamMedisLabel;
     private JLabel tgllabel;
     private JComboBox tgl;

@@ -40,6 +40,9 @@ public class Pasien extends AntrianPasien{
     
     public Pasien(){    } 
     // merupakan constructor dari kelas pasien
+    public void setnik(){
+        this.nik =nik;
+    }
     
     public void setnoRekamMedis(int noRekamMedis) throws Exception{
         if (noRekamMedis < 21 && noRekamMedis > 5) {
@@ -170,4 +173,7 @@ public class Pasien extends AntrianPasien{
         /* menthod dideklarasikan dengan nama gettahunLahir() bertipe int
               menthod ini akan mengembalikan nilai dari objek tahunLahir dengan perintah return */ 
 }
+    public String getnik(){
+        return nik;            
+    }
 }

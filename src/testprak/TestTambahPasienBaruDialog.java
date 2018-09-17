@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testview;
+package testPrak;
 
 import view.TambahPasienBaruDialog;
 
@@ -11,15 +11,10 @@ import view.TambahPasienBaruDialog;
  *
  * @author Thom
  */
-public class testtambahpasienBaruDialog {
-
-    /**
-     * @param args the command line arguments
-     */
+public class TestTambahPasienBaruDialog {
     public static void main(String[] args) {
-    TambahPasienBaruDialog test = new TambahPasienBaruDialog("tambah pasien baru");
-    test.setSize(700, 400);       
-    test.setVisible(true);
+        TambahPasienBaruDialog test = new TambahPasienBaruDialog();
+        test.setSize(500, 400);
+        test.setVisible(true);
     }
-    
 }

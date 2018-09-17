@@ -40,8 +40,8 @@ public class MainFrame extends JFrame implements ActionListener {
         // buat menu
         fileMenu = new JMenu("File");
         exitMenuItem = new JMenuItem("exit");
-        TambahPasienBaruDialog = new JMenuItem("TambahPasien");
-        DaftarAntrianDialog = new JMenuItem("Tambah Antrian");
+        TambahPasienBaruDialog = new JMenuItem("Tambah Pasien");
+        DaftarAntrianDialog = new JMenuItem("Daftar Antrian");
         
         fileMenu.add(TambahPasienBaruDialog);
         fileMenu.add(DaftarAntrianDialog);
@@ -63,7 +63,7 @@ public class MainFrame extends JFrame implements ActionListener {
         if (e.getSource() == TambahPasienBaruDialog) {
             // nantinya diganti TambahPasienBaruDialog
             TambahPasienBaruDialog test = new TambahPasienBaruDialog();
-            test.setSize(500, 400);
+            test.setSize(700, 400);
             test.setVisible(true);
         }
         if (e.getSource() == DaftarAntrianDialog) {
