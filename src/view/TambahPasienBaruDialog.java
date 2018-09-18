@@ -131,7 +131,7 @@ public class TambahPasienBaruDialog extends JDialog {
          
         this.setLayout(null);
         save = new JButton("SAVE");
-        save.setBounds(100, 350, 100, 30);
+        save.setBounds(200, 300, 100, 30);
         save.setFont(new Font(null,Font.BOLD,20));   
         this.add(save);
 }}
