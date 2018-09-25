@@ -106,7 +106,6 @@ public class TambahPasienBaruDialog extends JDialog implements ActionListener{
         this.add(thnlabel);
         
         jeniskelammin = new JLabel("Jenis Kelamin");
-        // pengaturan posisi label : posisi 50,250, lebar 50, tinggi 10
         jeniskelammin.setBounds(50, 140, 150, 20);
         jeniskelammin.setFont(new Font(null,Font.BOLD,16));
         this.add(jeniskelammin);
@@ -188,15 +187,19 @@ public class TambahPasienBaruDialog extends JDialog implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+         if(e.getSource()==namaText){
+            JOptionPane.showMessageDialog(null, namaText.getText());
+         }
         if (e.getSource() == save) {
             Pasien pas = new Pasien();
             pas.setnoRekamMedis(noRekamMedistext.getText());
             pas.setNama(namaText.getText());
             pas.setAlamat(alamatText.getText());
             Pasien.tambahPasienBaru(pas);
-//            this.dispose();
+            
+            JOptionPane.showMessageDialog(null, namaText.getText()+" ditambahkan");
+            this.dispose();
         }
     }
-    
  }
 

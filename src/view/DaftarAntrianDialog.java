@@ -14,6 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import model.Pasien;
 
 /**
@@ -40,20 +41,17 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
     public DaftarAntrianDialog() {
         init();
     }
-
-    public DaftarAntrianDialog(String title) {
-        this.setTitle(title);
+ public DaftarAntrianDialog(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         init();
     }
 
-   private void init() {
+    public DaftarAntrianDialog(String tambah_antrian_baru) {
+         
+    }
+    
 
-//        noRMText = new javax.swing.JTextField();
-//        jLabel1 = new javax.swing.JLabel();
-//        jLabel2 = new javax.swing.JLabel();
-//        namaText = new javax.swing.JTextField();
-//        jButton1 = new javax.swing.JButton();
-//        jLabel3 = new javax.swing.JLabel();
+   private void init() {
 
         JudulLabel = new JLabel("DAFTAR ANTRIAN PASIEN");
         JudulLabel.setFont(new Font(null, Font.BOLD, 18));
@@ -154,21 +152,47 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
         daftar.setFont(new Font(null, Font.BOLD, 20));
         this.add(daftar);
 
+        noRekamMedistext.addActionListener(this);
         daftar.addActionListener(this);
     }
-    private void noRMTextActionPerformed(java.awt.ActiveEvent evt){
-        Pasien pas = Pasien.cariPasien(noRekamMedistext.getText());
-        namaText.setText(pas.getNama());
-        alamatText.setText(pas.getAlamat());
-
-    }
-
+    private void noRMTextActionPerformed(java.awt.event.ActionEvent evt) {                                         
+  
+        Pasien baru = Pasien.cariPasien(noRekamMedistext.getText());
+        namaText.setText(baru.getNama());
+        alamatText.setText(baru.getAlamat());
+                }
+   private void namaActionperformed(java.awt.event.ActionEvent evt){
+       
+   } 
+   private void alamatActionperformed(java.awt.event.ActionEvent evt){
+       
+   }
+   
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == noRekamMedistext.getText()) {
+            if (Pasien.cariPasien(noRekamMedistext.getText()) != null) {   
+            
+             namaText.setText(Pasien.cariPasien(noRekamMedistext.getText()).getNama());
+             alamatText.setText(Pasien.cariPasien(noRekamMedistext.getText()).getAlamat());
+       
+            } else {
+                
+                JOptionPane.showMessageDialog(null, "Nomor Rekam Medis : "+noRekamMedistext.getText()+" Tidak Tersedia");
+            }
+            
         if (e.getSource() == daftar) {
-//            dispose();
+        Pasien pas = Pasien.cariPasien(noRekamMedistext.getText());
+
+            for (int i = 0; i < Pasien.daftarPasienKlinik.size(); i++) {
+                if (pas == Pasien.daftarPasienKlinik.get(i)) {
+                    JOptionPane.showMessageDialog(null, "no antrian anda "+(i+1));
+                   this.dispose();
+                }
+                    
+                }
         }
     }
     
-
+    }
 }

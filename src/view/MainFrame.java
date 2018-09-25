@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Tom
  */
-public class MainFrame extends JFrame  {
+public class MainFrame extends JFrame {
 
     private JMenuBar menuBar;
     private JMenu fileMenu;
@@ -50,7 +50,7 @@ public class MainFrame extends JFrame  {
         exitMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                 System.exit(0);
+                System.exit(0);
             }
         });
         TambahPasienBaruDialog.addActionListener(new ActionListener() {
@@ -75,6 +75,5 @@ public class MainFrame extends JFrame  {
 
         this.setJMenuBar(menuBar);
 
-    
     }
 }
