@@ -28,7 +28,7 @@ class Klinik {
        /* menthod akan menjalankan perintah untuk menyimpan nilai dari objek nama ke attribute nama dan mendeklarasikan attribute
             itu sendiri dengan perintah this*/
    }
-   public String getnama(){
+   public String getnamaKlinik(){
        return nama;
        /* merupakan menthod getnama() dengan parameter nilai dari objek nama*/
        /* menthod akan menjalankan perintah untuk mengembalikan nilai ke attribute nama dengan perintah return*/

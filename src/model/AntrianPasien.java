@@ -5,6 +5,9 @@
  */
 package model;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lenovo
@@ -14,21 +17,47 @@ public class AntrianPasien {
     private int bulanAntrian;
     private int tahunAntrian;
     private Klinik klinik;
-    private Pasien daftarPasienantri[];
-     /* mendeklarasikan attribute tanggalAntrian, bulanAntrian, tahunAntrian dengan tipe data integer yang sifatnya private ,
-    mendeklarasikan attribute klinik dengan tipe Klinik yang sifatnya private ; juga mendeklarasikan attribute dafterPasien bersifat array yang sifatnya private*/
+    private ArrayList<Pasien> daftarPasienAntri = new ArrayList<Pasien>();
+    public static ArrayList<AntrianPasien> daftarAntrian = new ArrayList<AntrianPasien>();
     
-    public AntrianPasien() {    } 
-    /* constructor dari kelas AntrianPasien yang merupakan menthod khusus yang akan  dijalankan secara otomatis pada saat sebuah objek dibuat atau
-     ketika perintah new dijalankan*/
+    public AntrianPasien(){
+    }
+    public ArrayList<Pasien> getDaftarPasien() {
+        return daftarPasienAntri;
+    }
+    public void setDaftarPasien(ArrayList<Pasien> daftarPasien) {
+        this.daftarPasienAntri = daftarPasien;
+    }
     public void mendaftar(Pasien pasien){
+        getDaftarPasien().add(pasien);
+    } 
+    
+    public static int cariPasien(int tglantri,int blnantri,int thnantri,Klinik klinik) {
+        return -1; // index list
+    }
+      
+    public static void DaftarPasien(Pasien pasien,int tanggal, int bulan, int tahun,Klinik klinik) {
         
     }
+        public static void buatAntrian(int tanggal, int bulan, int tahun, Klinik klinik) throws Exception {
+        AntrianPasien antri = new AntrianPasien();
+        antri.settanggalAntrian(tanggal);
+        antri.setbulanAntrian(bulan);
+        antri.settahunAntrian(tahun);
+        antri.SetKLinik(klinik);
+        // cari antrian dalam list daftarAntri
+        if (cariPasien(tanggal, bulan, tahun, klinik) <0) {
+           daftarAntrian.add(antri);
+        } else {
+            System.out.println("antrian sudah ada");
+        }
+    }
+    
     
     public void settanggalAntrian(int tanggalAntrian)throws Exception{
         if (tanggalAntrian < 32 && tanggalAntrian > 0) {
             this.tanggalAntrian = tanggalAntrian;
-    } else { throw new Exception(" tanggal tidak valid");
+    } else { throw new Exception(JOptionPane.showInputDialog(null," tanggal tidak valid"));
     
        /* merupakan menthod settanggalAntrian dengan parameter nilai dari objek tanggalAntrian bertipe integer,menthod diberikan kode
              throws exception untuk melemparkan kondisi yang mencegah eksekusi berjalan normal atau exception dari menthod settanggalAntrian*/
@@ -75,13 +104,6 @@ public class AntrianPasien {
             itu sendiri dengan perintah this*/
        
     }
-    public void  setdaftarPasien(Pasien daftarPasien[]){
-        this.daftarPasienantri = daftarPasien;
-         /* merupakan menthod setdaftarPasien() dengan parameter nilai dari objek daftarPasienyang bertipe Pasien, menthod ini diberi kode
-             throws exception untuk melemparkan kondisi yang mencegah eksekusi berjalan normal atau exception dari menthod setdaftarPasien() */
-         /* menthod akan menjalankan perintah untuk menyimpan nilai dari objek daftarPasien ke attribute daftarPasien dan mendeklarasikan attribute
-            itu sendiri dengan perintah this*/
-    }
     public int gettanggalAntrian(){
         return tanggalAntrian;
         /* merupakan menthod gettanggalAntrian() dengan parameter nilai dari objek tanggalAntrian */
@@ -102,12 +124,14 @@ public class AntrianPasien {
          /* merupakan menthod getklinik() dengan parameter nilai dari objek klinik*/
          /* menthod akan menjalankan perintah untuk mengembalikan nilai ke attribute klinik dengan perintah return*/
     }
-    public Pasien[] getdaftarPasien(){
-        return daftarPasienantri;
-         /* merupakan menthod getdaftarPasien() dengan parameter nilai dari objek daftarPasien*/
-         /* menthod akan menjalankan perintah untuk mengembalikan nilai ke attribute daftarPasien dengan perintah return*/
+    public String toString() {
+        return String.valueOf(tahunAntrian)
+                + String.valueOf(bulanAntrian)
+                + String.valueOf(tanggalAntrian)
+                + klinik.getidklinik()
+                + klinik.getnamaKlinik();
     }
-}
+   }
 
 
 

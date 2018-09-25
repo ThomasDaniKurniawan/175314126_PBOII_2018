@@ -12,14 +12,13 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-
-
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Tom
  */
-public class MainFrame extends JFrame implements ActionListener {
+public class MainFrame extends JFrame  {
 
     private JMenuBar menuBar;
     private JMenu fileMenu;
@@ -32,7 +31,7 @@ public class MainFrame extends JFrame implements ActionListener {
     }
 
     public void init() {
-        
+
         // buat menu bar
         menuBar = new JMenuBar();
         // set Titile
@@ -42,36 +41,40 @@ public class MainFrame extends JFrame implements ActionListener {
         exitMenuItem = new JMenuItem("exit");
         TambahPasienBaruDialog = new JMenuItem("Tambah Pasien");
         DaftarAntrianDialog = new JMenuItem("Daftar Antrian");
-        
+
         fileMenu.add(TambahPasienBaruDialog);
         fileMenu.add(DaftarAntrianDialog);
         fileMenu.add(exitMenuItem);
         menuBar.add(fileMenu);
 
-        exitMenuItem.addActionListener(this);
-        TambahPasienBaruDialog.addActionListener(this); // actionlistener1
-        DaftarAntrianDialog.addActionListener(this);
+        exitMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 System.exit(0);
+            }
+        });
+        TambahPasienBaruDialog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TambahPasienBaruDialog test = new TambahPasienBaruDialog();
+                test.setSize(700, 400);
+                test.setVisible(true);
+
+            }
+        });
+
+        DaftarAntrianDialog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DaftarAntrianDialog daftar = new DaftarAntrianDialog();
+                daftar.setSize(700, 600);
+                daftar.setVisible(true);
+
+            }
+        });
 
         this.setJMenuBar(menuBar);
-    }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == exitMenuItem) {
-            System.exit(0);
-        }
-        if (e.getSource() == TambahPasienBaruDialog) {
-            // nantinya diganti TambahPasienBaruDialog
-            TambahPasienBaruDialog test = new TambahPasienBaruDialog();
-            test.setSize(700, 400);
-            test.setVisible(true);
-        }
-        if (e.getSource() == DaftarAntrianDialog) {
-            DaftarAntrianDialog daftar = new DaftarAntrianDialog();
-            daftar.setSize(500,400);
-            daftar.setVisible(true);
-            
-        }
+    
     }
-
 }

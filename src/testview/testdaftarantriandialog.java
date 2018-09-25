@@ -18,7 +18,7 @@ public class testdaftarantriandialog {
      */
     public static void main(String[] args) {
      DaftarAntrianDialog daftar= new DaftarAntrianDialog("tambah antrian baru");
-     daftar.setSize(300, 400);       
+     daftar.setSize(700, 400);       
      daftar.setVisible(true);    }
     
 }
