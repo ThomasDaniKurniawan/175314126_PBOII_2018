@@ -31,7 +31,7 @@ public class Pasien {
     }
 
     public static void tambahPasienBaru(Pasien pasien) {
-//        Pasien.daftarPasienKlinik.add(pasien);
+            GetDaftarPasien().add(pasien);
 
     }
 
@@ -57,8 +57,11 @@ public class Pasien {
         daftarPasienKlinik = daftarPasien;
     }
 
-    public Pasien() {
+    public Pasien(String nama,String alamat) {
+        this.nama=nama;
+        this.alamat = alamat;
     }
+    public Pasien(){}
 
     // merupakan constructor dari kelas pasien
     public void setnik() {

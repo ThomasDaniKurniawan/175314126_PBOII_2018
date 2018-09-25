@@ -154,24 +154,18 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
 
         noRekamMedistext.addActionListener(this);
         daftar.addActionListener(this);
-    }
-    private void noRMTextActionPerformed(java.awt.event.ActionEvent evt) {                                         
-  
+    
+
         Pasien baru = Pasien.cariPasien(noRekamMedistext.getText());
         namaText.setText(baru.getNama());
         alamatText.setText(baru.getAlamat());
-                }
-   private void namaActionperformed(java.awt.event.ActionEvent evt){
-       
-   } 
-   private void alamatActionperformed(java.awt.event.ActionEvent evt){
-       
+                
    }
    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == noRekamMedistext.getText()) {
-            if (Pasien.cariPasien(noRekamMedistext.getText()) != null) {   
+            if (Pasien.cariPasien(noRekamMedistext.getText()) == null) {   
             
              namaText.setText(Pasien.cariPasien(noRekamMedistext.getText()).getNama());
              alamatText.setText(Pasien.cariPasien(noRekamMedistext.getText()).getAlamat());

@@ -189,6 +189,7 @@ public class TambahPasienBaruDialog extends JDialog implements ActionListener{
     public void actionPerformed(ActionEvent e) {
          if(e.getSource()==namaText){
             JOptionPane.showMessageDialog(null, namaText.getText());
+            
          }
         if (e.getSource() == save) {
             Pasien pas = new Pasien();
