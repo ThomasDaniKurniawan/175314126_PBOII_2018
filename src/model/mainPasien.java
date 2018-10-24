@@ -15,7 +15,7 @@ public class mainPasien {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-       AntrianPasien anpas = new AntrianPasien();
+       AntrianKlinik anpas = new AntrianKlinik();
        Pasien pas = new Pasien();
        /* membuat objek baru dari kelas Pasien yang dideklarasikan dengan nama  Pas*/
        Dokter doc = new Dokter();
@@ -24,7 +24,7 @@ public class mainPasien {
        // membuat objek baru dari kelas Klinik yang dideklarasikan dengan nama kl
 
         
-       pas.setnoRekamMedis("7");
+       pas.setNoRM("7");
        /* input nilai 7 sebagai parameter dari menthod setnoRekamMedis() yang dijalankan oleh objek pas dari kelas Pasien*/
        pas.setAlamat("jl. sesama, no.1 Rt 2 Rw 3");
        /* input keterangan berupa "jl. sesama, no.1 Rt 2 Rw 3" yang digunakan sebagai parameter menthod setAlamat() yang dijalankan objek pas daeri kelas pasien*/
@@ -35,7 +35,7 @@ public class mainPasien {
        
        pas.setTanggalLahir(2);
        /* input nilai 2 sebagai parameter dari menthod setTanggalLahir() yang dijalankan oleh objek pas dari kelas Pasien*/
-       pas.setTempatLahir("Jayapura");
+//       pas.setTempatLahir("Jayapura");
        /* input keterangan berupa "jayapura" yang digunakan sebagai parameter menthod setTempatLahir() yang dijalankan objek pas dari kelas pasien*/
        pas.settahunLahir(1999);
        /* input nilai 1999 sebagai parameter dari menthod settahunLahir() yang dijalankan oleh objek pas dari kelas Pasien*/
@@ -52,7 +52,7 @@ public class mainPasien {
        /* input nilai 9 yang digunakan sebagai parameter menthod setbulanAntrian() yang dijalankan objek pas dari kelas Pasien*/     
         anpas.settahunAntrian(2015);
        /* input nilai 2015 yang digunakan sebagai parameter menthod settahunAntrian() yang dijalankan objek pas dari kelas Pasien*/     
-        anpas.SetKLinik(kl);
+        anpas.setKlinik(kl);
        /* input nilai dari objek kl yang digunakan sebagai parameter menthod SetKLinik() yang dijalankan objek pas dari kelas Pasien*/     
 
        
@@ -76,18 +76,18 @@ public class mainPasien {
         //
         System.out.println("Data Pasien");
         // 
-        System.out.println("nomor rekam medis \t="+pas.getnoRekamMedis());
+        System.out.println("nomor rekam medis \t="+pas.getNoRM());
         // cetak "nomor rekam medis" dan panggil menthod getnoRekamMedis() yg tlah dijalankan oleh objek pas
         System.out.println("nama              \t="+pas.getNama());
         // cetak "nama" dan panggil menthod getnama() yang telah dijalankan oleh objek pas
         System.out.println("alamat            \t="+pas.getAlamat());
         // cetak "alamat" dan panggil menthod getAlamat()
         
-        System.out.print("tempat tanggal lahir\t="+pas.getTempatLahir());
+//        System.out.print("tempat tanggal lahir\t="+pas.getTempatLahir());
         // cetak "tempat tanggal lahi" lalu panggil menthod getTempatLahir()
         System.out.print(","+pas.getTanggalLahir());
-        System.out.print("/"+pas.getBulanLAhir());
-        System.out.println("/"+pas.gettahunLahir());
+        System.out.print("/"+pas.getBulanLahir());
+        System.out.println("/"+pas.getTahunLahir());
         System.out.print("tanggal antrian     \t="+anpas.gettanggalAntrian());
         System.out.print("/"+anpas.getbulanAntrian());
         System.out.println("/"+anpas.gettahunAntrian());

@@ -17,8 +17,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import model.Klinik;
 import model.Pasien;
-
 
 
 /**
@@ -40,12 +40,11 @@ public class TambahPasienBaruDialog extends JDialog implements ActionListener{
     private JLabel thnlabel;
     private JTextField namaText;
     private JTextField alamatText;
-//    private JTextField TTLText;
     private JTextField noRekamMedistext;
     private JComboBox tgl;
     private JComboBox bln;
     private JComboBox thn;
-//    private JRadioButton tambahbutton;
+    private JComboBox Klinik;
     private JButton save;
     
     public TambahPasienBaruDialog() {
@@ -137,28 +136,28 @@ public class TambahPasienBaruDialog extends JDialog implements ActionListener{
         tgl.addItem(i);
         }
         tgl.setBounds(120, 220, 100, 30);
-        this.add(tgl);
+        this.add(this.tgl);
         
         this.setLayout(null);
         bln = new JComboBox();
-        bln.addItem("January");
-        bln.addItem("February");
-        bln.addItem("March");
-        bln.addItem("April");
-        bln.addItem("May");
-        bln.addItem("June");
-        bln.addItem("July");
-        bln.addItem("august");
-        bln.addItem("September");
-        bln.addItem("October");
-        bln.addItem("November");
-        bln.addItem("December");
+        bln.addItem(1);
+        bln.addItem(2);
+        bln.addItem(3);
+        bln.addItem(4);
+        bln.addItem(5);
+        bln.addItem(6);
+        bln.addItem(7);
+        bln.addItem(8);
+        bln.addItem(9);
+        bln.addItem(10);
+        bln.addItem(11);
+        bln.addItem(12);
         bln.setBounds(310, 220, 100, 30);
         this.add(bln);
         
         this.setLayout(null);
         thn = new JComboBox();
-        for (int i = 1990; i <=2018; i++) {
+        for (int i = 1970; i <=2018; i++) {
         thn.addItem(i);
         }
         thn.setBounds(490, 220, 100, 30);
@@ -179,6 +178,9 @@ public class TambahPasienBaruDialog extends JDialog implements ActionListener{
         save.setBounds(200, 300, 100, 30);
         save.setFont(new Font(null,Font.BOLD,20));   
         this.add(save);
+        
+        Klinik = new JComboBox();
+        this.add(Klinik);
     
         save.addActionListener(this);
         
@@ -187,20 +189,34 @@ public class TambahPasienBaruDialog extends JDialog implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-         if(e.getSource()==namaText){
-            JOptionPane.showMessageDialog(null, namaText.getText());
-            
-         }
+
         if (e.getSource() == save) {
+            try {
             Pasien pas = new Pasien();
+            Klinik kl = new Klinik();           
             pas.setnoRekamMedis(noRekamMedistext.getText());
             pas.setNama(namaText.getText());
             pas.setAlamat(alamatText.getText());
+            
+            int tanggal = Integer.valueOf(this.tgl.getSelectedItem().toString());
+            int bulan = Integer.valueOf(this.bln.getSelectedItem().toString());
+            int tahun = Integer.valueOf(this.thn.getSelectedItem().toString());
+            pas.setTanggalLahir(tanggal);
+            pas.setBulanLAhir(bulan);
+            pas.settahunLahir(tahun);
             Pasien.tambahPasienBaru(pas);
             
+            String kliniknm = String.valueOf(Klinik.getSelectedItem());
+            kl.setnama(kliniknm);
+            kl.setidklinik(kliniknm);
+            Pasien.tambahPasienBaru(pas);
             JOptionPane.showMessageDialog(null, namaText.getText()+" ditambahkan");
-            this.dispose();
+            }
+            catch (Exception ex){
+                JOptionPane.showMessageDialog(null, ex);
+            }         
+       
         }
-    }
  }
+}
 

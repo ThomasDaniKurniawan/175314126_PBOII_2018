@@ -16,14 +16,14 @@ import model.RumahSakit;
 public class TesRumahSakit1 {
     public static void main(String[] args) {
         Pasien pasien1 = new Pasien();
-        pasien1.setNama("Puspa");
-        pasien1.setAlamat("klaten");
+        pasien1.setNama("Puspa\t");
+        pasien1.setAlamat("klaten\n");
         
         Pasien pasien2 = new Pasien();
-        pasien2.setNama("Adi");
-        pasien2.setAlamat("yogya");
+        pasien2.setNama("Adi\t");
+        pasien2.setAlamat("yogya\n");
         
-        RumahSakit rs = new RumahSakit("Panti Rapih","Yogyakarta");
+        RumahSakit rs = new RumahSakit("Panti Rapih\t","Yogyakarta");
         
         rs.tambahPasienBaru(pasien1);
         rs.tambahPasienBaru(pasien2);
@@ -31,7 +31,6 @@ public class TesRumahSakit1 {
         rs.simpanObjekRumahSakit(new File("rsku.dat"));
         System.out.println(" "+pasien1.getNama() +pasien1.getAlamat() );
         System.out.println(" "+pasien2.getNama() + pasien2.getAlamat());
-        System.out.println(" "+rs.getNama()
-        + rs.getAlamat() + rs.getDaftarPasien() );
+        System.out.println(" "+rs.getNama()+ rs.getAlamat()  );
     }
 }

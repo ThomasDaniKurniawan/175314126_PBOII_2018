@@ -12,46 +12,70 @@ import javax.swing.JOptionPane;
  *
  * @author Lenovo
  */
-public class AntrianPasien {
+public class AntrianKlinik {
     private int tanggalAntrian;
     private int bulanAntrian;
     private int tahunAntrian;
     private Klinik klinik;
-    private ArrayList<Pasien> daftarPasienAntri = new ArrayList<Pasien>();
-    public static ArrayList<AntrianPasien> daftarAntrian = new ArrayList<AntrianPasien>();
+    ArrayList<Pasien> daftarPasienAntri;
+    public static ArrayList<AntrianKlinik> daftarAntrian = new ArrayList<AntrianKlinik>();
     
-    public AntrianPasien(){
+    
+    
+//        public static void buatAntrian(int tanggal, int bulan, int tahun, Klinik klinik) throws Exception {
+//        AntrianKlinik antri = new AntrianKlinik();
+//        antri.settanggalAntrian(tanggal);
+//        antri.setbulanAntrian(bulan);
+//        antri.settahunAntrian(tahun);
+//        antri.SetKLinik(klinik);
+//        // cari antrian dalam list daftarAntri
+//        if (cariAntrian(tanggal, bulan, tahun, klinik) <0) {
+//           daftarAntrian.add(antri);
+//        } else {
+//            System.out.println("antrian sudah ada");
+//        }
+//    }
+//        public static int cariAntrian(int tglantri,int blnantri,int thnantri,Klinik klinik) {
+//        return -1; // index list
+//    }
+//        public void daftarpasien(Pasien pasien, int tanggal,int bulan, int tahun){
+//        this.tanggalAntrian = tanggal;
+//        this.bulanAntrian = bulan;
+//        this.tahunAntrian = tahun;
+//    }
+        
+        
+    public AntrianKlinik(){
     }
-    public ArrayList<Pasien> getDaftarPasien() {
+
+    public AntrianKlinik(int tanggalAntrian, int bulanAntrian, int tahunAntrian, Klinik klinik) {
+        this.tanggalAntrian = tanggalAntrian;
+        this.bulanAntrian = bulanAntrian;
+        this.tahunAntrian = tahunAntrian;
+        this.klinik = klinik;
+    }
+     public void mendaftar(Pasien pasien){
+        getDaftarPasien().add(pasien);
+    } 
+     
+    
+    public ArrayList<Pasien> getDaftarPasien() {       
         return daftarPasienAntri;
     }
     public void setDaftarPasien(ArrayList<Pasien> daftarPasien) {
         this.daftarPasienAntri = daftarPasien;
     }
-    public void mendaftar(Pasien pasien){
-        getDaftarPasien().add(pasien);
-    } 
+  
+//
+//    public ArrayList<Pasien> getDaftarPasienAntri() {
+//        return daftarPasienAntri;
+//    }
+//
+//    public void setDaftarPasienAntri(ArrayList<Pasien> daftarPasienAntri) {
+//        this.daftarPasienAntri = daftarPasienAntri;
+//    }
     
-    public static int cariPasien(int tglantri,int blnantri,int thnantri,Klinik klinik) {
-        return -1; // index list
-    }
       
-    public static void DaftarPasien(Pasien pasien,int tanggal, int bulan, int tahun,Klinik klinik) {
-        
-    }
-        public static void buatAntrian(int tanggal, int bulan, int tahun, Klinik klinik) throws Exception {
-        AntrianPasien antri = new AntrianPasien();
-        antri.settanggalAntrian(tanggal);
-        antri.setbulanAntrian(bulan);
-        antri.settahunAntrian(tahun);
-        antri.SetKLinik(klinik);
-        // cari antrian dalam list daftarAntri
-        if (cariPasien(tanggal, bulan, tahun, klinik) <0) {
-           daftarAntrian.add(antri);
-        } else {
-            System.out.println("antrian sudah ada");
-        }
-    }
     
     
     public void settanggalAntrian(int tanggalAntrian)throws Exception{
@@ -95,7 +119,7 @@ public class AntrianPasien {
             adalah " tahun anda salah "*/
         }
     }
-    public void SetKLinik(Klinik klinik){
+    public void setKlinik(Klinik klinik){
         this.klinik = klinik;
         
         /* merupakan menthod setKlinik() dengan parameter nilai dari objek klinik yang bertipe Klinik, menthod ini diberi kode

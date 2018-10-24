@@ -14,7 +14,11 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.AntrianKlinik;
+import model.Klinik;
 import model.Pasien;
 
 /**
@@ -37,12 +41,13 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
     private JTextField noRekamMedistext;
     private JTextField namaText;
     private JTextField alamatText;
+    private JTextField tgltext;
+    private JTextField blntext;
+    private JTextField thntext;
+    private JTextField kliniktxt;
+    
 
     public DaftarAntrianDialog() {
-        init();
-    }
- public DaftarAntrianDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
         init();
     }
 
@@ -84,16 +89,43 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
         this.add(alamatText);
 
         this.setLayout(null);
-        namaText = new JTextField();
+        namaText = new JTextField(100);
         namaText.setFont(new Font(null, Font.BOLD, 14));
         namaText.setBounds(390, 70, 100, 30);
         this.add(namaText);
+        
 
         this.setLayout(null);
         noRekamMedistext = new JTextField();
         noRekamMedistext.setBounds(130, 70, 100, 30);
         noRekamMedistext.setFont(new Font(null, Font.PLAIN, 18));
-        this.add(noRekamMedistext);
+       this.add(noRekamMedistext);
+        
+        noRekamMedistext.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ex) {
+                 Pasien pas = Pasien.cariPasien(noRekamMedistext.getText());
+                 if (pas == null) {
+                     JOptionPane.showMessageDialog(null, noRekamMedistext.getText());                                      
+                } else {
+                     try { 
+                         Klinik kl = new Klinik();
+                         namaText.setText(pas.getNama());
+                         alamatText.setText(pas.getAlamat());
+                         String tanggal = String.valueOf(pas.getTanggalLahir());
+                         String bulan = String.valueOf(pas.getBulanLahir());
+                         String tahun = String.valueOf(pas.getTahunLahir());
+                         tgltext.setText(tanggal);
+                         blntext.setText(bulan);
+                         thntext.setText(tahun);
+                         kliniktxt.setText(kl.getnamaKlinik());
+                     } catch (Exception e){
+                         JOptionPane.showMessageDialog(null, e);
+                         
+                     }
+                 }
+            }
+        });
 
         this.setLayout(null);
         tgllabel = new JLabel("TANGGAL");
@@ -112,6 +144,18 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
         thnlabel.setFont(new Font(null, Font.BOLD, 14));
         thnlabel.setBounds(50, 220, 100, 30);
         this.add(thnlabel);
+        
+        tgltext = new JTextField(10);
+        tgltext.setBounds(130, 140, 100, 30);
+        this.add(tgltext);
+        
+        blntext = new JTextField(10);
+        blntext.setBounds(130, 180, 100, 30);
+        this.add(blntext);
+        
+        thntext = new JTextField(10);
+        thntext.setBounds(130, 220, 100, 30);
+        this.add(thntext);
 
         this.setLayout(null);
         tgl = new JComboBox();
@@ -164,24 +208,48 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
    
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == noRekamMedistext.getText()) {
-            if (Pasien.cariPasien(noRekamMedistext.getText()) == null) {   
-            
-             namaText.setText(Pasien.cariPasien(noRekamMedistext.getText()).getNama());
-             alamatText.setText(Pasien.cariPasien(noRekamMedistext.getText()).getAlamat());
-       
-            } else {
-                
-                JOptionPane.showMessageDialog(null, "Nomor Rekam Medis : "+noRekamMedistext.getText()+" Tidak Tersedia");
-            }
+//        if (e.getSource() == noRekamMedistext.getText()) {
+//          
+//            if (Pasien.cariPasien(noRekamMedistext.getText()) == null) {   
+//            
+//             namaText.setText(Pasien.cariPasien(noRekamMedistext.getText()).getNama());
+//             alamatText.setText(Pasien.cariPasien(noRekamMedistext.getText()).getAlamat());
+//       
+//            } else {
+//                
+//                JOptionPane.showMessageDialog(null, "Nomor Rekam Medis : "+noRekamMedistext.getText()+" Tidak Tersedia");
+//            }
             
         if (e.getSource() == daftar) {
         Pasien pas = Pasien.cariPasien(noRekamMedistext.getText());
 
             for (int i = 0; i < Pasien.daftarPasienKlinik.size(); i++) {
                 if (pas == Pasien.daftarPasienKlinik.get(i)) {
-                    JOptionPane.showMessageDialog(null, "no antrian anda "+(i+1));
-                   this.dispose();
+                    
+                    try {
+                         Pasien pass = new Pasien();                        
+                         Klinik kl = new Klinik();    
+                         AntrianKlinik anpas = new AntrianKlinik();
+                         pass.setNama(namaText.getText());
+                         pass.setAlamat(alamatText.getText());
+                         pass.setnoRekamMedis(noRekamMedistext.getText());
+                         kl.setnama(namaText.getText());
+                         
+                         int tanggal = Integer.parseInt(tgltext.getText());
+                         int bulan = Integer.parseInt(blntext.getText());
+                         int tahun = Integer.parseInt(thntext.getText());
+                         
+                         pass.setTanggalLahir(tanggal);
+                         pass.setBulanLAhir(bulan);
+                         pass.settahunLahir(tahun);
+                         anpas.mendaftar(pass);
+                         
+                         
+                         JOptionPane.showMessageDialog(null, "no antrian anda "+(i+1));
+                    } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);                    }
+                    
+               
                 }
                     
                 }
@@ -189,4 +257,4 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
     }
     
     }
-}
+
