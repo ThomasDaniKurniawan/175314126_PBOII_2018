@@ -29,8 +29,9 @@ public class TesRumahSakit1 {
         rs.tambahPasienBaru(pasien2);
         
         rs.simpanObjekRumahSakit(new File("rsku.dat"));
+        System.out.println(" "+rs.getNama()+","+ rs.getAlamat()  +"\n");
         System.out.println(" "+pasien1.getNama() +pasien1.getAlamat() );
         System.out.println(" "+pasien2.getNama() + pasien2.getAlamat());
-        System.out.println(" "+rs.getNama()+ rs.getAlamat()  );
+        
     }
 }

@@ -5,11 +5,16 @@
  */
 package model;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,7 +23,7 @@ import java.util.logging.Logger;
  *
  * @author admin
  */
-public class RumahSakit {
+public class RumahSakit implements Serializable {
     private String nama;
     private String alamat;
     public static ArrayList<Pasien> daftarPasien = new ArrayList<Pasien>();
@@ -91,9 +96,37 @@ public class RumahSakit {
         }
 }   
     public void simpanObjekRumahSakit(File file){
+        try {
+            
+            FileOutputStream fos = new FileOutputStream("rs.baca");
+               ObjectOutputStream oos = new ObjectOutputStream(fos);
+//               PrintWriter pw = new PrintWriter(oos);     
+               oos.writeObject(file);
+//               pw.write(nama);
+//               pw.write(alamat);
+//               
+               
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(RumahSakit.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(RumahSakit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+       
         
     }
     public void bacaObjekRumahSakit(File file){
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            ois.read();
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(RumahSakit.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(RumahSakit.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 
